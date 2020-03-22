@@ -356,15 +356,21 @@ GRANT ALL ON * TO `admin`;
 --Chef de pavillon : gestion des chambre et vues sur les statuts de paiement et de lingerie(pour la délivrance de quitus)
 GRANT SELECT, INSERT, UPDATE, DELETE ON chambre TO `chefDePav`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON codifChambre TO `chefDePav`;
+GRANT INSERT, SELECT ON compte TO `chefDePav`;
+GRANT INSERT, SELECT, UPDATE ON personnel TO `chefDePav`;
 GRANT SELECT ON paiement TO `chefDePav`;
 GRANT SELECT ON lingerie TO `chefDePav`;
 --Etudiant : modifications des informations de son profil et création de compte
 GRANT SELECT, INSERT, UPDATE ON etudiant TO `Etudiant`;
-GRANT INSERT ON compte TO `Etudiant`;
+GRANT INSERT, SELECT ON compte TO `Etudiant`;
 --Comptable : s'occupe de l'enregistrement des paiements
 GRANT SELECT, INSERT, UPDATE ON paiement TO `Comptable`;
+GRANT INSERT, SELECT, UPDATE ON personnel TO `Comptable`;
+GRANT INSERT, SELECT ON compte TO `Comptable`;
 --chargé de lingerie: s'occupe des contrats de lingerie
 GRANT SELECT, INSERT, UPDATE ON lingerie TO `chargéDeLingerie`;
+GRANT INSERT, SELECT, UPDATE ON personnel TO `chargéDeLingerie`;
+GRANT INSERT, SELECT ON compte TO `chargéDeLingerie`;
 --
 --CREATION DES UTILISATEURS DISTANTS
 --
