@@ -1,0 +1,116 @@
+button:focus{
+	background-color: rgb(131,107,223);
+	color: white
+
+}
+.bton{
+	color:rgb(131,107,223);background-color: white;margin-left:97px;border-radius:15px 15px 15px 15px;
+}
+span:first-letter{
+	font-weight: bold;font-family:Helvetica;font-size:30px;color:rgb(131,107,223);margin-left:30px;
+
+}
+ul{
+	display:inline;margin-left:200px
+}
+.rw{
+	margin-top:180px;margin-left:-90px;
+}
+h1{
+	font-weight: bold;font-family: helvetica
+}
+.p2{
+	background-color:rgb(131,107,223);border-radius:50%;padding-left: 120px
+}
+div.p2{
+width:400px;height:400px;padding-top:70px
+}
+img.acc{
+	width:320px;height:250px;
+}
+.footg{
+	background-color:red;border-radius:50%;width:70px;float:left;height:70px;padding-left:17px;padding-top:20px
+}
+.footf{
+	background-color:blue;margin-left:120px;border-radius:50%;float:left;width:70px;height:70px;padding-left:17px;padding-top:20px
+}
+.foott{
+	background-color:rgb(131,107,223);margin-left:140px;float:left;border-radius:50%;width:70px; height:70px;padding-left:17px;padding-top:20px
+}
+img div.footer{
+	height:200px;width:200px;
+}
+.ct{
+	margin-left: 400px
+}
+.affiche{
+	background-color: rgb(131,107,223);
+	height:160px;padding-left:20px;padding-top:35px;margin-left:10px;border-radius: 10%;
+
+}
+.affiche a{
+	color:white;font-size:30px;font-weight:bold;font-family:helvetica
+}
+.rw2{
+	margin-top: 15px
+}
+.footer2{
+	margin-top:90px;
+}
+.rw22{
+	margin-top:30px;
+}
+.row2{
+	margin-top:120px;
+}
+.afficheCham{
+	background-color:rgb(230,230,250);height:100px;margin-left:20px;padding-top:20px
+}
+.a{
+	font-size:30px;font-weight: bold; color:white;
+}
+.btn2{
+	width:110px;height:60px;border-radius:10%;background-color:black;color:white;size:50px;font-family: helvetica;font-weight:bold;
+}
+.containChambre{
+	padding-left:90px;margin-top: 100px;padding-bottom:10px
+}
+.sidenav {
+  display :none;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
