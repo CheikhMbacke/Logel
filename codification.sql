@@ -115,7 +115,7 @@ CREATE TABLE `lingerie` (
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`idLing`, `numeroCarte`, `libelle`) VALUES
+INSERT INTO `lingerie` (`idLing`, `numeroCarte`, `libelle`) VALUES
 (1, '201607rty', '2 draps, 1 couette et 1 moustiquaire'),
 (1, '201607lki', '2 draps et 1 couette');
 
@@ -180,7 +180,7 @@ CREATE TABLE `pavillon` (
 -- Déchargement des données de la table `pavillon`
 --
 
-INSERT INTO `pavillon` (`nomPavillon`) VALUES
+INSERT INTO `pavillon` (`nomPavillon`, `chefPav`) VALUES
 ('Pavillon A',1),
 ('Pavillon B',2),
 ('Pavillon C',2),
@@ -345,6 +345,42 @@ ALTER TABLE `lingerie`
 ALTER TABLE `paiement`
   ADD CONSTRAINT `fk_idCodification` FOREIGN KEY (`idCodification`) REFERENCES `codifChambre` (`idCodif`),
   ADD CONSTRAINT `fk_idCompte` FOREIGN KEY (`idCompte`) REFERENCES `compte` (`idCompte`);
+--
+--Creation des différenys rôles identifiés : admin, chef de pavillon, etudiant, comptable, chargé de lingerie
+--
+CREATE ROLE `admin`, `chefDePav`, `Etudiant`, `chargéDeLingerie`, `Comptable`;
+--
+--Assignation de privilèges pour chaque rôle
+--Admin : doit pouvoir faire toutes les opérations sur toutes les tables
+GRANT ALL ON * TO `admin`;
+--Chef de pavillon : gestion des chambre et vues sur les statuts de paiement et de lingerie(pour la délivrance de quitus)
+GRANT SELECT, INSERT, UPDATE, DELETE ON chambre TO `chefDePav`;
+GRANT SELECT, INSERT, UPDATE, DELETE ON codifChambre TO `chefDePav`;
+GRANT SELECT ON paiement TO `chefDePav`;
+GRANT SELECT ON lingerie TO `chefDePav`;
+--Etudiant : modifications des informations de son profil et création de compte
+GRANT SELECT, INSERT, UPDATE ON etudiant TO `Etudiant`;
+GRANT INSERT ON compte TO `Etudiant`;
+--Comptable : s'occupe de l'enregistrement des paiements
+GRANT SELECT, INSERT, UPDATE ON paiement TO `Comptable`;
+--chargé de lingerie: s'occupe des contrats de lingerie
+GRANT SELECT, INSERT, UPDATE ON lingerie TO `chargéDeLingerie`;
+--
+--CREATION DES UTILISATEURS DISTANTS
+--
+CREATE USER 'admin'@'%' IDENTIFIED BY 'admin123';
+CREATE USER 'CDP'@'%' IDENTIFIED BY 'pavillon123';
+CREATE USER 'etu'@'%' IDENTIFIED BY 'etudiant123';
+CREATE USER 'compt'@'%' IDENTIFIED BY 'comptable123';
+CREATE USER 'CDL'@'%' IDENTIFIED BY 'lingerie123';
+--
+--Assignation des roles aux users
+--
+GRANT 'admin' TO 'admin'@'%';
+GRANT 'chefDePav' TO 'CDP'@'%';
+GRANT 'Etudiant' TO 'etu'@'%';
+GRANT 'chargéDeLingerie' TO 'CDL'@'%';
+GRANT 'Comptable' TO 'compt'@'%';
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
