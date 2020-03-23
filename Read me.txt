@@ -1,0 +1,7 @@
+bonjour tout le monde
+
+pour l'importation des feuilles de styles, vous pouvez toujours utiliser ceux d'avant avec Coumba Ba de même que pour le bootstrap pour l'affichage de la barre de navigation.
+
+Pour moi j'ai directement défini les styles dans la balise style et utiliser bootstrap 3, qui faudra télécharger si certaine fonctionnnalités ne viennent pas avec ceux de Coumba
+
+faites moi de vos retours et sugestions après test merci.
