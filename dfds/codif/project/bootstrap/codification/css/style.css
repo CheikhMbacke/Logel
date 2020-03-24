@@ -1,0 +1,41 @@
+button:focus{
+	background-color: rgb(131,107,223);
+	color: white
+
+}
+.bton{
+	color:rgb(131,107,223);background-color: white;margin-left:97px;border-radius:15px 15px 15px 15px;
+}
+span:first-letter{
+	font-weight: bold;font-family:Helvetica;font-size:30px;color:rgb(131,107,223);margin-left:30px;
+
+}
+ul{
+	display:inline;margin-left:200px
+}
+.rw{
+	margin-top:180px;margin-left:-90px;
+}
+h1{
+	font-weight: bold;font-family: helvetica
+}
+.p2{
+	background-color:rgb(131,107,223);border-radius:50%;padding-left: 120px
+}
+img div.p2{
+	width:300px;height:400px
+}
+.footg{
+	background-color:red;border-radius:50%;width:70px;float:left;height:70px;padding-left:17px;padding-top:20px
+}
+.footf{
+	background-color:blue;margin-left:120px;border-radius:50%;float:left;width:70px;height:70px;padding-left:17px;padding-top:20px
+}
+.foott{
+	background-color:rgb(131,107,223);margin-left:140px;float:left;border-radius:50%;width:70px; height:70px;padding-left:17px;padding-top:20px
+}
+img div.footer{
+	height:200px;width:200px;
+}
+
+
