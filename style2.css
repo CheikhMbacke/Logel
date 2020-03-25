@@ -1,23 +1,7 @@
-@media all and (max-device-width:480px){
-	.btn,.ico{
-		display:none;
-	}
-	.icomain{
-		margin-left: 20px
-	}
-	.sidenav a {
-		font-size:18px;
-	}
-	.sidenav .closebtn{
-		padding-left:25px;
-	}
-	.ad{
-		font-size: 20px;margin-left: 30px;margin-top:25px;padding-left: 10px
 
-	}
-
+.bgg{
+	background-color:#f6f6f6;height:80px;
 }
-
 button.bton:focus{
 	background-color: rgb(131,107,223);
 	color:white;
@@ -131,46 +115,42 @@ img div.footer{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.nbar{
-	height:70px
-}
 .btnclose{
-	margin-left:195px;margin-top:20px
+	margin-left:195px;margin-top:20px;
 }
 .icomain{
-	font-size:30px;margin-left:-30px;color:rgb(131,107,223);
+	font-size:30px;color:rgb(131,107,223);position:absolute;top:19px;
 }
 .ico{
-	margin-left: 300px
+	position:absolute;left:600px;width:300px;height:35px;border-color:lavender;top:19px;
+	
 }
 .user{
-	margin-left:500px;
+	position:absolute;right:250px;top:30px;
+	
 }
-.icomain2{
-	font-size:30px;margin-left:-100px;color:rgb(131,107,223);
+.log{
+	position:absolute;right:110px;
 }
-.ico2{
-	margin-left: 300px
+.sear{
+	position:relative;left:695px;top:27px;
 }
-.user2{
-	margin-left:500px;
-}
+
 .ad{
 	background-color:rgb(131,107,223);color:white;font-size: 50px;font-weight: bold;
 	border-radius:50%;height:400px;margin-top:140px;margin-left:800px;padding-top:150px;
-	padding-left:30px;
+	padding-left:30px;border:1px;
 }
+
 .add{
-	background-color: lavender;height:650px;margin-left:250px;z-index:-1000px
+	background-color: lavender;height:650px;margin-left:250px;margin-top:130px;
 }
-.add span.titre{
-	margin-left: 110px;font-size:25px
-}
+
 hr{
 	border:solid white 1px;
 }
 h2{
-	padding-left:400px;color:black;padding-top:15px;font-family:times new roman
+	padding-left:400px;color:black;padding-top:15px;font-family:helvetica
 }
 .val{
 	font-size:20px;
