@@ -171,6 +171,9 @@ span.logo:first-letter{
 	font-weight: bold;font-family:Helvetica;font-size:30px;color:rgb(131,107,223);margin-left:30px;
 
 }
+span.logo{
+	position:absolute;left:-10px;color:black;
+}
 .hid,.hidee{
 	
 }
