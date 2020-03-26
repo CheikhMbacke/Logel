@@ -29,7 +29,7 @@
 				die('Erreur : ' . $e->getMessage());
 		}
 		//La liste des profiles
-		$reqProfil = $bdd->query('SELECT libelle FROM typeprofile');
+		$reqProfil = $bdd->query('SELECT idProfile,libelle FROM typeprofile');
 	?>
 	<form  action="savePersonnel.php" method="post" class="box">
 		<h1>Personnel</h1>
@@ -37,7 +37,7 @@
 			<option selected >Choisir</option>
 			<?php 
 				while ($profiles = $reqProfil->fetch()) { ?>
-					<option value="<?php echo $profiles['libelle'];?>"><?php echo $profiles['libelle'];?></option>
+					<option value="<?php echo $profiles['idProfile'];?>"><?php echo $profiles['libelle'];?></option>
 				<?php } ?>
 		</select>
 		<input type="text" name="nom" placeholder="Nom">
