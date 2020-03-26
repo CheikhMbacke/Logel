@@ -7,7 +7,8 @@
 	
 </head>
 <body class ="boddy">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+	<nav class="navbar navbar-fixed-top bgg">
+		<div class="container">
 			<a class="navbar-brand " href="#"><span class= "navbar-brand logo">SamaCampus</span></a>
 			<a class="icomain" href="javascript:void(0)" onclick="openNav()">
 			<span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -18,6 +19,7 @@
 			</form>
 			<span class="glyphicon user glyphicon-user"></span>
 			<button class="btn bton log">Se déconnecter</button>
+		</div>
 	</nav>
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
@@ -63,17 +65,17 @@
 				</div>
 			</div>
 		</footer>
-	</div>
-<script type="text/javascript">
-	function openNav() {
- 		document.getElementById("mySidenav").style.display = "block";
- 		document.getElementById("mySidenav").style.width = "250px";
-	}
+		</div>
+	<script type="text/javascript">
+		function openNav() {
+	 		document.getElementById("mySidenav").style.display = "block";
+	 		document.getElementById("mySidenav").style.width = "250px";
+		}
 
-	function closeNav() {
-  		document.getElementById("mySidenav").style.width = "0";
-  
-	}
-</script>
+		function closeNav() {
+	  		document.getElementById("mySidenav").style.width = "0";
+	  
+		}
+	</script>
 </body>
 </html>
