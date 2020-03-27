@@ -1,4 +1,4 @@
-#Configuration Ajouter un fichier dans env.php dans logelApp comportant: 
+#Configuration Ajouter un fichier env.php dans logelApp comportant: 
 ->$host=; 
 ->$user=; 
 ->$key =; 
