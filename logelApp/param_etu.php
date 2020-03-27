@@ -21,20 +21,17 @@
 				<span class="glyphicon glyphicon-search"></span>
 			</form>
 			<span class="glyphicon user2 glyphicon-user"></span>
-			<button class="btn bton">Se déconnecter</button>
+			<a hreh="authEtudiant.php" class="btn bton">Se déconnecter</a>
 		</div>
 	</nav>
 
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
-  		<a href="#">
-  			<span class="glyphicon glyphicon-user"></span>
-  			Personnels</a><br>
-  		<a href="#">Créer comptes</a><br>
+  		<a href="home_etu.php">Home</a><br>
   		<a href="#">
   			<span class="glyphicon glyphicon-cog"></span>
   			Parametres</a><br>
-  		<a href="#" class="logout">Se déconnecter</a>
+  		<a href="authEtudiant.php" class="logout">Se déconnecter</a>
 	</div>
 	<div class ="container-fluid">
 		<div class="row">

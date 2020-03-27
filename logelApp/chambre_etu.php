@@ -1,8 +1,12 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Home-Codif</title>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="./assets/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,11 +22,11 @@
 			<span class="glyphicon glyphicon-menu-hamburger"></span>
 			</a>
 			<form>
-				<input type="text" placeholder="Rechercher..." class="ico" name="search" class="search">
+				<input type="text" placeholder="Rechercher ..." class="ico" name="search" class="search">
 				<span class="glyphicon glyphicon-search"></span>
 			</form>
 			<span class="glyphicon user glyphicon-user"></span>
-			<button class="btn bton">Se déconnecter</button>
+			<a href="authEtudiant.php" class="btn bton">Se déconnecter</a>
 	</nav>
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
@@ -31,25 +35,33 @@
         <a href="param_etu.html">
   			<span class="glyphicon glyphicon-cog"></span>
   			Parametres</a><br>
-  		<a href="#" class="logout">Se déconnecter</a>
+  		<a href="authEtudiant.php" class="logout">Se déconnecter</a>
 	</div>
 	<?php
 		try
 		{
+			require_once './env.php';
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $key, array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)
 		{
 			die('Erreur : ' . $e->getMessage());
 		}
-        //La liste des chambres
+		
+		if($_SESSION['sexe'] == 'F') 
+			$sexe = 'FILLE' ;
+		else
+			$sexe = 'GARCON';
+		
+		//La liste des chambres
         $reqPavillon = $bdd->prepare('SELECT idPav FROM pavillon WHERE libelle=?');
         $reqPavillon->execute(array($_GET['pav']));
         $idPav = $reqPavillon->fetch();
-        $reqChambres = $bdd->prepare('SELECT * FROM chambre WHERE pav=?');
-        $reqChambres->execute(array($idPav[0]));
+        $reqChambres = $bdd->prepare('SELECT * FROM chambre WHERE pav=? AND typeChambre=?');
+		$reqChambres->execute(array($idPav[0],$sexe));
+		
 	?>
         <div class ="container-fluid">
 		<div class="row">

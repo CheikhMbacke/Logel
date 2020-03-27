@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +21,11 @@
 			<span class="glyphicon glyphicon-menu-hamburger"></span>
 			</a>
 			<form>
-				<input type="text" placeholder="Rechercher..." class="ico" name="search" class="search">
+				<input type="text" placeholder="Rechercher ..." class="ico" name="search" class="search">
 				<span class="glyphicon glyphicon-search"></span>
 			</form>
 			<span class="glyphicon user glyphicon-user"></span>
-			<button class="btn bton">Se déconnecter</button>
+			<a href="authEtudiant.php" class="btn bton">Se déconnecter</a>
 	</nav>
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
@@ -29,13 +33,14 @@
   		<a href="param_etu.php">
   			<span class="glyphicon glyphicon-cog"></span>
   			Parametres</a><br>
-  		<a href="#" class="logout">Se déconnecter</a>
+  		<a href="authEtudiant.php" class="logout">Se déconnecter</a>
 	</div>
 	<?php
 		try
 		{
+			require_once('./env.php');
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $key, array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)

@@ -11,9 +11,9 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
-			<a class="navbar-brand" href="home.html"><span class= "navbar-brand">SamaCampus</span></a>
+			<a class="navbar-brand" href="index.php"><span class= "navbar-brand">SamaCampus</span></a>
 			<ul class="navbar-nav mr-auto cul" >
-				<li class='nav-item'><a href="Admin_home.php"  class="btn btn-info lg">Retour</a></li>
+				<li class='nav-item'><a href="Admin_index.php"  class="btn btn-info lg">Retour</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -21,7 +21,8 @@
 		try
 		{
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			require_once './env.php';
+			$bdd = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $key, array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)

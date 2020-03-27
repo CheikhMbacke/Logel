@@ -27,7 +27,7 @@
 
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
-  		<a href="Admin_home.php">Home</a>
+  		<a href="Admin_index.php">Home</a>
 		<a href="listePersonnel.php">
   			<span class="glyphicon glyphicon-user"></span>
   			Personnels</a><br>

@@ -1,3 +1,6 @@
+<?php
+	session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -17,7 +20,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
 			<a class="navbar-brand" href="#"><span class= "navbar-brand">SamaCampus</span></a>
 			<ul class="navbar-nav mr-auto cul">
-				<li class='nav-item'><a href="home.html" class="nav-link"><button class="btn bton bt">Home</button></a></li>
+				<li class='nav-item'><a href="index.php" class="nav-link"><button class="btn bton bt">Home</button></a></li>
 				<li class='nav-item'><a href="compte_etudiant.php" class="nav-link"><button class="btn bton">Créer un compte</button></a></li>
 				<li class='nav-item'><a href="authEtudiant.php" class="nav-link"><button class="btn bton">Se connecter</button></a></li>
 			</ul>

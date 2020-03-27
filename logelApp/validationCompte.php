@@ -1,7 +1,8 @@
 <?php
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+        require_once './env.php';
+        $bdd = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $key, array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
         //echo 'connexion à la base de données réussie';
     }
     catch (Exception $e)
