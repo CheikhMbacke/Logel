@@ -8,7 +8,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="C:/wamp/www/bootstrap2/css/bootstrap.css"> -->
 	<link rel="stylesheet" type="text/css" href="./assets/style2.css">
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
-	
+
 </head>
 <body class ="boddy">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
@@ -35,7 +35,7 @@
 		try
 		{
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)
@@ -55,12 +55,12 @@
 			</div>
 			<?php }?>
 		</div>
-		
+
 		</div> -->
 		<footer>
 			<div class="row">
 				<div class="col-md-12 footer2">
-					
+
 				</div>
 			</div>
 		</footer>
@@ -73,7 +73,7 @@
 
 	function closeNav() {
   		document.getElementById("mySidenav").style.width = "0";
-  
+
 	}
 </script>
 </body>

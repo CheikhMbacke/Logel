@@ -17,11 +17,11 @@
 			</ul>
 		</nav>
 	</header>
-	<?php 
+	<?php
 		try
 		{
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)
@@ -35,7 +35,7 @@
 		<h1>Personnel</h1>
 		<select class="custom-select" name="role" id="inputGroupSelect01">
 			<option selected >Choisir</option>
-			<?php 
+			<?php
 				while ($profiles = $reqProfil->fetch()) { ?>
 					<option value="<?php echo $profiles['idProfile'];?>"><?php echo $profiles['libelle'];?></option>
 				<?php } ?>
@@ -59,12 +59,12 @@
 				?>
 				<div class="alert alert-danger"> <?php echo $_GET['msg_error'] ;?></div>
 			<?php
-		} 
+		}
 			if(isset($_GET['msg_success'])){
 				?>
 				<div class="alert alert-success"> <?php echo $_GET['msg_success'] ;?></div>
 			<?php
-		} 
+		}
 			if(isset($_GET['msg_info'])){
 			?>
 			<div class="alert alert-info"> <?php echo $_GET['msg_info'] ;?></div>

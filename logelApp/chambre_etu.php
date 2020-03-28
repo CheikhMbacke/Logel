@@ -9,7 +9,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="C:/wamp/www/bootstrap2/css/bootstrap.css"> -->
 	<link rel="stylesheet" type="text/css" href="./assets/style2.css">
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
-	
+
 </head>
 <body class ="boddy">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
@@ -22,7 +22,7 @@
 				<span class="glyphicon glyphicon-search"></span>
 			</form>
 			<span class="glyphicon user glyphicon-user"></span>
-			<button class="btn bton">Se déconnecter</button>
+			<button class="btn btn-danger float-left">Se déconnecter</button>
 	</nav>
 	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="btnclose" onclick="closeNav()">&times;</a><br>
@@ -37,51 +37,60 @@
 		try
 		{
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)
 		{
 			die('Erreur : ' . $e->getMessage());
 		}
+				session_start();
         //La liste des chambres
         $reqPavillon = $bdd->prepare('SELECT idPav FROM pavillon WHERE libelle=?');
         $reqPavillon->execute(array($_GET['pav']));
         $idPav = $reqPavillon->fetch();
-        $reqChambres = $bdd->prepare('SELECT * FROM chambre WHERE pav=?');
-        $reqChambres->execute(array($idPav[0]));
+        $reqChambres = $bdd->prepare('SELECT * FROM chambre WHERE pav= :pav and genre = :genre');
+        $reqChambres->execute(array(
+					'pav' => $idPav[0],
+					'genre' => $_SESSION['genre']
+				));
 	?>
         <div class ="container-fluid">
 		<div class="row">
 			<div class= "col-md-8 col-xs-7 add">
-				<h2>Liste des chambres</h2><br><br>
-				<table width="800" border="0">
-					<tr>
-                        <th>Pavillon</th>
-                        <th>Genre logé</th>
-                        <th>N° Chambre</th>
-					</tr>
-					<?php
-                        while($chambres = $reqChambres->fetch()){
-                        ?>
-					<tr>
-						<td><?php echo $_GET['pav'];?></td>
-						<td class="val"><?php echo $chambres["typeChambre"];?></td>
-						<td class="val"><?php echo $chambres["numero"];?></td>
-					</tr>
-						<?php }?>
-				</table>
-				
+				<h2>Codification</h2><br><br>
+				<form class="form w-25" action="../controllers/functions.php" method="post">
+						<h3>Pavillon choisi : <?php echo $_GET['pav']; ?></h3>
+						<div class="form-group">
+							<label for="">Numero de chambre</label>
+							<select class="form-control" name="num">
+								<?php
+										while ($ch = $reqChambres->fetch()) {
+											echo '<option value="'.$ch['idChambre'].'">'.$ch['numero'].'</option>';
+										}
+								 ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Statut</label>
+							<select class="form-control" name="statut">
+								<option value="titulaire">Titulaire</option>
+								<option value="suppleant">Suppleant</option>
+							</select>
+						</div>
+						<div class="mt-2">
+							<input class="btn btn-primary" type="submit" name="" value="Choisir">
+						</div>
+				</form>
+				<?php
+					if ($_GET['err']) { ?>
+						<div class="alert alert-danger">
+						  <strong>Erreur :</strong> <?php echo $_GET['err']; ?>
+						</div>
+					<?php }
+				 ?>
 			</div>
 		</div>
-	 
-		<footer>
-			<div class="row">
-				<div class="col-md-12 footer2">
-					
-				</div>
-			</div>
-		</footer>
 	</div>
 <script type="text/javascript">
 	function openNav() {
@@ -91,7 +100,11 @@
 
 	function closeNav() {
   		document.getElementById("mySidenav").style.width = "0";
-  
+	}
+
+	function getValue(){
+		var elem = document.getElementById('tit').value;
+
 	}
 </script>
 </body>

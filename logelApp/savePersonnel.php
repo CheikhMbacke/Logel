@@ -2,7 +2,7 @@
     try
     {
         //$host = 'localhost';
-        $bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
         //echo 'connexion à la base de données réussie';
     }
     catch (Exception $e)
@@ -27,8 +27,8 @@
         $numero = $_REQUEST['numero'];
         $password = $_REQUEST['password'];
         $cpassword = $_REQUEST['cpassword'];
-        
-     
+
+
         //Les profils
         //$reqProfils = $bdd->query('SELECT libelle FROM typeprofile ');
         $reqPersonnel = $bdd->prepare('SELECT email FROM personnel WHERE email=?');
@@ -36,14 +36,14 @@
         $personnel = $reqPersonnel->fetch();
         if($personnel['email'] != $email){
             $reqSavePersonnel = $bdd->prepare('INSERT INTO personnel
-            (nom,prenom,email,numero,role,password) 
+            (nom,prenom,email,numero,role,password)
             values (?,?,?,?,?,?)');
             $reqSavePersonnel->execute(array($nom,$prenom,$email,$numero,$role,$password));
-            header("Location:compte_personnel.php?msg_success=Personnel enregistré avec succés");     
+            header("Location:compte_personnel.php?msg_success=Personnel enregistré avec succés");
         }else{
            header("Location:compte_personnel.php?msg_info=Personnel existe deja");
         }
     }else{
         header("Location:compte_personnel.php?msg_error=Veuiller remplir les champs vides");
-    } 
+    }
 ?>

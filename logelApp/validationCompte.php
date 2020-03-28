@@ -1,15 +1,15 @@
 <?php
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
         //echo 'connexion à la base de données réussie';
     }
     catch (Exception $e)
     {
             die('Erreur : ' . $e->getMessage());
     }
- 
-    
+
+
     //verification numero carte etudiant
      $reqNumCarte = $bdd->prepare('SELECT numCarte FROM etudiant WHERE numCarte=?');
      $reqNumCarte->execute(array($_REQUEST['numEtudiant']));
@@ -32,8 +32,8 @@
         }else{
             header("Location:compte_etudiant.php?msg_info=Compte ".$numCarte['numEtudiant']." deja activé ");
         }
-    } 
+    }
     else{
         header("Location:compte_etudiant.php?msg_error=Le numero de l 'etudiant n'est pas admis");
-    }  
+    }
 ?>

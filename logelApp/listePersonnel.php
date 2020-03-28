@@ -39,7 +39,7 @@
 		try
 		{
 			//$host = 'localhost';
-			$bdd = new PDO('mysql:host=localhost;dbname=logel_db', 'cheikh', 'passer123', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
+			$bdd = new PDO('mysql:host=localhost;dbname=logel', 'kande', 'passer', array(PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION));
 			//echo 'connexion à la base de données réussie';
 		}
 		catch (Exception $e)
@@ -74,10 +74,10 @@
 					</tr>
 						<?php }?>
 				</table>
-				
+
 			</div>
 		</div>
-	
+
 	</div>
 <script type="text/javascript">
 	function openNav() {
@@ -87,7 +87,7 @@
 
 	function closeNav() {
   		document.getElementById("mySidenav").style.width = "0";
-  
+
 	}
 </script>
 </body>

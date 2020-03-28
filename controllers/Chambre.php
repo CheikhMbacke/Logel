@@ -13,17 +13,20 @@
         return parent::getGenderRoom($attribute,$gender);
       }
 
-      public function addStudentIntoRoom($num,$card){
-        echo "string";
-        parent::addStudentIntoRoom($num,$card);
+      public function addStudentIntoRoom($num,$card,$statut){
+        return parent::addStudentIntoRoom($num,$card,$statut);
       }
 
       public function lingerie($carte, $field){
-        parent::lingerie($carte, $field);
+        return parent::lingerie($carte, $field);
       }
 
       public function hasLingerie($carte){
         parent::hasLingerie($carte);
+      }
+
+      public function isTitulaire($carte){
+        return parent::isTitulaire($carte);
       }
     }
   ?>
