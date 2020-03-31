@@ -7,6 +7,7 @@
 
 <body>
 	<?php
+		session_start();
 			require_once '../assets/bootstrap.php';
 			require_once '../controllers/Chambre.php';
 			require_once '../controllers/Pavillon.php';
@@ -36,7 +37,7 @@
   			Parametres</a>
 	</div>
 	<div class="col-md-6 col-xs-8 col-md-offset-3 col-xs-offset-2 buanderie">
-		<form method="post" class="">
+		<form action="buanderie.php" method="post" class="">
 			<legend><span>Prenom-Nom: </span><span>Num-Carte:</span></legend>
 			<fieldset>
 				<legend>Caution</legend>
@@ -47,7 +48,7 @@
 				<table>
 					<tr>
 						<td><label>Couverture :</label></td>
-						<td><input class="" type="checkbox" name="Couverture" value="aCourverture"  /></td>
+						<td><input class="" type="checkbox" name="Couverture" value="aCouverture"  /></td>
 
 
 					</tr>
@@ -66,21 +67,20 @@
 			<input classe="valider" type="submit" name="submit" value="Valider">
 		</form>
 	</div>
+	<?php
+		if(isset($_GET['err'])){
+			$class = $_GET['err'] == 'false' ? 'alert alert-success' : 'alert alert-danger';
+			echo '<div class="mt-3 '.$class.'">'.$_GET['msg'].'</div>';
+		}
+	 ?>
 
 	<?php
 
 		if(isset($_POST['submit'])){
 			$roomManager = new Chambre();
-			echo "string";
-			foreach ($_POST as $key => $value) {
-				if($key != 'submit'){
-					echo 'here';
-					$roomManager->lingerie('201607E0R',$value);
-					echo 'end';
-				}
-			}
+			$roomManager->lingerie($_SESSION['carte'],$_POST);
+			echo 'end';
 		}
-		$roomManager->hasLingerie('201607E0R');
 	 ?>
 	<script type="text/javascript">
 	function openNav() {

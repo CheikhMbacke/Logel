@@ -23,8 +23,8 @@
     if($numCarte)   {
         if($numCarte['numCarte'] != $carte['carte']){
              try {
-            $req = $bdd->prepare('INSERT INTO etudiantcodif(carte,password) values (?,?) ');
-            $req->execute(array($_REQUEST['numEtudiant'],'passer'));
+              $req = $bdd->prepare('INSERT INTO etudiantcodif(carte,pwd) values (?,?) ');
+              $req->execute(array($_REQUEST['numEtudiant'],'passer'));
             } catch (Exception $ex) {
                 die('Erreur : ' . $e->getMessage());
             }

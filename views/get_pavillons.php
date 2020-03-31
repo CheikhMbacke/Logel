@@ -3,15 +3,15 @@
     require_once '../controllers/Pavillon.php';
 
     $pavillonManager = new Pavillon();
-    $pavillons = $pavillonManager->getAttribute("nomPavillon");
+    $pavillons = $pavillonManager->getAttribute("libelle");
 
 ?>
     <ul class="list-group">
     <?php
         while ($data = $pavillons->fetch()) {
             ?>
-            <li class="list-group-item"><?php echo $data["nomPavillon"];?>
-            <a href='get_rooms.php?nomPav=<?php echo $data["nomPavillon"];?>' style="float:right">Voir les chambres</a>
+            <li class="list-group-item"><?php echo $data["libelle"];?>
+            <a href='get_rooms.php?nomPav=<?php echo $data["libelle"];?>' style="float:right">Voir les chambres</a>
             </li>
         <?php } ?>
     </ul>

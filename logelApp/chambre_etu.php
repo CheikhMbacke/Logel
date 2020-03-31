@@ -31,7 +31,8 @@
         <a href="param_etu.html">
   			<span class="glyphicon glyphicon-cog"></span>
   			Parametres</a><br>
-  		<a href="#" class="logout">Se déconnecter</a>
+				<a href="buanderie.php" class="logout">Buanderie</a>
+				<a href="#" class="logout">Se déconnecter</a>
 	</div>
 	<?php
 		try
@@ -51,7 +52,7 @@
         $idPav = $reqPavillon->fetch();
         $reqChambres = $bdd->prepare('SELECT * FROM chambre WHERE pav= :pav and genre = :genre');
         $reqChambres->execute(array(
-					'pav' => $idPav[0],
+					'pav' => $idPav['idPav'],
 					'genre' => $_SESSION['genre']
 				));
 	?>

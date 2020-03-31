@@ -8,6 +8,7 @@
     </head>
     <body>
         <?php
+          session_start();
             require_once '../assets/bootstrap.php';
             require_once '../controllers/Chambre.php';
             require_once '../controllers/Pavillon.php';
@@ -46,7 +47,7 @@
         <?php
           if(isset($_POST['num']) and isset($_POST['pav'])){
             echo 'hghghg';
-            $roomManager->addStudentIntoRoom($_POST['num'],'201607E0R');
+            $roomManager->addStudentIntoRoom($_POST['num'], $_SESSION['carte']);
             echo '<script>alert("chambre bien ajoute"); </script>';
           }
          ?>

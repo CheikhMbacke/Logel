@@ -104,63 +104,7 @@ transition: 0.25s;
   			<span class="glyphicon glyphicon-cog"></span>
   			Parametres</a>
 	</div>
-	<div class="col-md-6 col-xs-8 col-md-offset-3 col-xs-offset-2 cassier">
-		<form class="box">
-			<legend><span>Prenom-Nom:       </span><span>Num-Carte:</span></legend>
-			<fieldset>
-				<legend>Caution</legend>
-				Montant:<input type="number" name="montant"/>
-			</fieldset>
-			<fieldset>
-				<legend>Mensualité:</legend>
-				<table>
-					<tr>
-						<td><label>Javier :</label></td>
-						<td><input type="checkbox" name=""value="Javier"  /></td>
-						<td></td>
-						<td><label>Juillet :</label></td>
-						<td><input type="checkbox" name=""value="Juillet"/></td>
-					</tr>
-					<tr>
-						<td><label>Fevrier :</label></td>
-						<td><input type="checkbox" name=""value="Fevrier"/></td>
-						<td></td>
-						<td><label>Août :</label></td>
-						<td><input type="checkbox" name=""value="Août"/></td>
-					</tr>
-					<tr>
-						<td><label>Mars :</label></td>
-						<td><input type="checkbox" name=""value="Mars"/></td>
-						<td></td>
-						<td><label>Septembre :</label></td>
-						<td><input type="checkbox" name=""value="Septembre"/></td>
-					</tr>
-					<tr>
-						<td><label>Avril :</label></td>
-						<td><input type="checkbox" name=""value="Avril"/></td>
-						<td></td>
-						<td><label>Octobre :</label></td>
-						<td><input type="checkbox" name=""value="Octobre"/></td>
-					</tr>
-					<tr>
-						<td><label>Mai :</label></td>
-						<td><input type="checkbox" name=""value="Mai"/></td>
-						<td></td>
-						<td><label>Novembre :</label></td>
-						<td><input type="checkbox" name=""value="Novembre"/></td>
-					</tr>
-					<tr>
-						<td><label>Juin :</label></td>
-						<td><input type="checkbox" name=""value="Juin"/></td>
-						<td></td>
-						<td><label>Décembre :</label></td>
-						<td><input type="checkbox" name=""value="Decembre"/></td>
-					</tr>
-				</table>
-			</fieldset>
-			<input classe="valider" type="submit" name="" value="Valider">
-		</form>
-	</div>
+	
 	<script type="text/javascript">
 	function openNav() {
  		document.getElementById("mySidenav").style.display = "block";

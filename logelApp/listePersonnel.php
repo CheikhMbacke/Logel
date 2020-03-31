@@ -47,7 +47,7 @@
 			die('Erreur : ' . $e->getMessage());
 		}
 		//La liste des personnels
-		$reqPersonnel = $bdd->query('SELECT role,nom,prenom,numero FROM personnel');
+		$reqPersonnel = $bdd->query('SELECT * FROM personnel');
 	?>
 	<div class ="container-fluid">
 		<div class="row">
@@ -69,7 +69,7 @@
 					<tr>
 						<td><span class="glyphicon val glyphicon-user"></span><?php echo $profil[0] ;?></span></td>
 						<td class="val"><?php echo $personnel['nom'] ;?></td>
-						<td class="val"><?php echo $personnel['prenom'] ;?></td>
+						<td class="val"><?php echo $personnel['premom'] ;?></td>
 						<td class="val"><?php echo $personnel['numero'] ;?></td>
 					</tr>
 						<?php }?>

@@ -32,17 +32,24 @@
         ));
     }
 
+    function getStudentByCarte($carte){
+      $request = $this->connect->prepare('SELECT * from etudiant where NumCarte = :card');
+      $request->execute(array('card' => $carte));
+      return $request;
+    }
+
     function lingerie($carte, $field){
       $request = $this->connect->prepare('SELECT caution from etudiantcodif where carte = :card');
       $request->execute(array('card' => $carte));
       $tmp = $request->fetch();
       $caution = $tmp['caution'];
       if($caution == 1){
+        echo $field;
         $req = $this->connect->prepare('UPDATE etudiantcodif SET '.$field.' = :val WHERE carte = :card');
         $req->execute(array(
             'card' => $carte,
             'val' => 1
-          ));
+        ));
         return true;
       }
       else{
@@ -125,6 +132,56 @@
         'card' => $carte,
         'pwd' => $password
       ));
+      return $req;
+    }
+
+    function paiement($carte,$chefComp,$mois){
+      $date = date('Y-m-d');
+      $req = false;
+      foreach ($mois as $value){
+        $req = $this->connect->prepare('INSERT INTO paiement(etudi,chefComptable,datePaiement,mois) values(:carte,:chef,:dat,:mois)');
+        $req->execute(array(
+          'carte' => $carte,
+          'chef' => $chefComp,
+          'dat' => $date,
+          'mois' => $value
+        ));
+      }
+      return $req;
+    }
+
+    function payWithCaution($carte,$chefComp,$mois,$caution){
+      $date = date('Y-m-d');
+      $req = false;
+      $req = $this->connect->prepare('UPDATE etudiantcodif SET caution = 1 WHERE carte = :card');
+      $req->execute(array(
+        'card' => $carte
+      ));
+      if($mois != null)
+        foreach ($mois as $value){
+          $req = $this->connect->prepare('INSERT INTO paiement(etudi,chefComptable,datePaiement,mois) values(:carte,:chef,:dat,:mois)');
+          $req->execute(array(
+            'carte' => $carte,
+            'chef' => $chefComp,
+            'dat' => $date,
+            'mois' => $value
+          ));
+        }
+      return $req;
+    }
+
+    function cautionPayed($carte){
+      $student = $this->connect->prepare('SELECT caution from etudiantcodif where carte = :card');
+      $student->execute(array(
+        'card' => $carte
+      ));
+      $state = $student->fetch();
+      if($state['caution'] == 1){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
 }
 ?>

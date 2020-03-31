@@ -17,8 +17,20 @@
         return parent::addStudentIntoRoom($num,$card,$statut);
       }
 
-      public function lingerie($carte, $field){
-        return parent::lingerie($carte, $field);
+      public function lingerie($carte, $fields){
+        $state = true;
+        $i = 0;
+         foreach ($fields as $key => $value) {
+          if($value != 'Valider')
+            $state = parent::lingerie($carte, $value);
+        }
+
+        // if($state == true){
+        //   header('location:../logelApp/buanderie.php?err=true&msg=Enregistrement bien effectue');
+        // }
+        // else{
+        //   header('location:../logelApp/buanderie.php?err=false&msg=Vous devez payez votre caution avant de prendre de lingerie');
+        // }
       }
 
       public function hasLingerie($carte){
